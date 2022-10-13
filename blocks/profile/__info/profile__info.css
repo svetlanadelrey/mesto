@@ -1,0 +1,13 @@
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+}
+
+@media screen and (min-width: 1280px) {
+    .profile__info {
+        align-items: flex-start;
+        padding-left: 30px;
+    }
+}
+

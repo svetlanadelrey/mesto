@@ -4,3 +4,20 @@
     flex-direction: column;
     justify-content: center;
 }
+
+@media screen and (min-width: 768px) {
+    .profile {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .profile {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 37px 0 37px;
+        align-items: center;
+    }
+}

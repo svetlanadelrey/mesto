@@ -12,57 +12,61 @@
     </header>
     <main>
         <section class="profile">
-            <div class="profile__circle">
+            <div class="profile__overlay">
                 <div class="profile__avatar"></div>
             </div>
-            <h2 class="profile__name">Жак-Ив Кусто</h2>
-            <button class="profile__button edit-button"></button>
-            <p class="profile__description">Исследователь океана</p>
-            <button class="profile__button add-button" type="button" aria-label="Добавить фото"></button>
+            <div class="profile__info">
+                <div class="profile__container">
+                    <h2 class="profile__title">Жак-Ив Кусто</h2>
+                    <button class="profile__button profile__button_edit" aria-label="Редактировать профиль"></button>
+                </div>
+                <p class="profile__paragraph">Исследователь океана</p>
+            </div>
+            <button class="profile__button profile__button_add" type="button" aria-label="Добавить фото"></button>
         </section>
-        <section class="gallery">
+        <section class="gallery" aria-label="Фотогалерея">
             <ul class="gallery__list">
                 <li class="gallery__item">
-                    <img src="./images/karachaevsk.jpg" alt="Карачаевский храм">
-                    <p class="gallery__heading">Карачаевск</p>
-                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.2991 9.78586C22.567 7.54338 22.567 3.90213 20.2991 1.68186C18.0311 -0.560619 14.3486 -0.560619 12.0806 1.68186L10.9804 2.792L9.88007 1.70406C7.61215 -0.560619 3.92957 -0.560619 1.6841 1.68186C0.583822 2.76979 0 4.21297 0 5.74496C0 7.27695 0.606277 8.72013 1.6841 9.80806L10.9804 19L20.2991 9.78586ZM1.4371 5.74496C1.4371 4.59042 1.8862 3.52469 2.71702 2.72539C3.5703 1.88168 4.67058 1.45983 5.77086 1.45983C6.87114 1.45983 7.97142 1.88168 8.8247 2.72539L10.9804 4.83465L13.136 2.70318C14.8201 1.03798 17.582 1.03798 19.2437 2.70318C20.0521 3.50248 20.5236 4.56821 20.5236 5.72276C20.5236 6.8773 20.0745 7.94303 19.2437 8.74233L10.9804 16.9351L2.71702 8.76453C1.90865 7.94303 1.4371 6.8773 1.4371 5.74496Z" fill="black"/>
-                    </svg>                        
+                    <img class="gallery__image" src="./images/karachaevsk.jpg" alt="Карачаевский храм">
+                    <div class="gallery__wrapper">
+                        <p class="gallery__title">Карачаевск</p>
+                        <img class="gallery__svg" src="./images/like.svg" alt="like">
+                    </div>                     
                 </li>
                 <li class="gallery__item">
                     <img src="./images/elbrus.jpg" alt="Гора Эльбрус">
-                    <p class="gallery__heading">Гора Эльбрус</p>
-                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.2991 9.78586C22.567 7.54338 22.567 3.90213 20.2991 1.68186C18.0311 -0.560619 14.3486 -0.560619 12.0806 1.68186L10.9804 2.792L9.88007 1.70406C7.61215 -0.560619 3.92957 -0.560619 1.6841 1.68186C0.583822 2.76979 0 4.21297 0 5.74496C0 7.27695 0.606277 8.72013 1.6841 9.80806L10.9804 19L20.2991 9.78586ZM1.4371 5.74496C1.4371 4.59042 1.8862 3.52469 2.71702 2.72539C3.5703 1.88168 4.67058 1.45983 5.77086 1.45983C6.87114 1.45983 7.97142 1.88168 8.8247 2.72539L10.9804 4.83465L13.136 2.70318C14.8201 1.03798 17.582 1.03798 19.2437 2.70318C20.0521 3.50248 20.5236 4.56821 20.5236 5.72276C20.5236 6.8773 20.0745 7.94303 19.2437 8.74233L10.9804 16.9351L2.71702 8.76453C1.90865 7.94303 1.4371 6.8773 1.4371 5.74496Z" fill="black"/>
-                    </svg>
+                    <div class="gallery__wrapper">
+                        <p class="gallery__title">Гора Эльбрус</p>
+                        <img class="gallery__svg" src="./images/like.svg" alt="like">
+                    </div>
                 </li>
                 <li class="gallery__item">
                     <img src="./images/dombay.jpg" alt="Домбай">
-                    <p class="gallery__heading">Домбай</p>
-                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.2991 9.78586C22.567 7.54338 22.567 3.90213 20.2991 1.68186C18.0311 -0.560619 14.3486 -0.560619 12.0806 1.68186L10.9804 2.792L9.88007 1.70406C7.61215 -0.560619 3.92957 -0.560619 1.6841 1.68186C0.583822 2.76979 0 4.21297 0 5.74496C0 7.27695 0.606277 8.72013 1.6841 9.80806L10.9804 19L20.2991 9.78586ZM1.4371 5.74496C1.4371 4.59042 1.8862 3.52469 2.71702 2.72539C3.5703 1.88168 4.67058 1.45983 5.77086 1.45983C6.87114 1.45983 7.97142 1.88168 8.8247 2.72539L10.9804 4.83465L13.136 2.70318C14.8201 1.03798 17.582 1.03798 19.2437 2.70318C20.0521 3.50248 20.5236 4.56821 20.5236 5.72276C20.5236 6.8773 20.0745 7.94303 19.2437 8.74233L10.9804 16.9351L2.71702 8.76453C1.90865 7.94303 1.4371 6.8773 1.4371 5.74496Z" fill="black"/>
-                    </svg>
+                    <div class="gallery__wrapper">
+                        <p class="gallery__title">Домбай</p>
+                        <img class="gallery__svg" src="./images/like.svg" alt="like">
+                    </div>
                 </li>
                 <li class="gallery__item">
                     <img src="./images/camels.jpg" alt="Чуйский тракт">
-                    <p class="gallery__heading">Чуйский тракт</p>
-                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.2991 9.78586C22.567 7.54338 22.567 3.90213 20.2991 1.68186C18.0311 -0.560619 14.3486 -0.560619 12.0806 1.68186L10.9804 2.792L9.88007 1.70406C7.61215 -0.560619 3.92957 -0.560619 1.6841 1.68186C0.583822 2.76979 0 4.21297 0 5.74496C0 7.27695 0.606277 8.72013 1.6841 9.80806L10.9804 19L20.2991 9.78586ZM1.4371 5.74496C1.4371 4.59042 1.8862 3.52469 2.71702 2.72539C3.5703 1.88168 4.67058 1.45983 5.77086 1.45983C6.87114 1.45983 7.97142 1.88168 8.8247 2.72539L10.9804 4.83465L13.136 2.70318C14.8201 1.03798 17.582 1.03798 19.2437 2.70318C20.0521 3.50248 20.5236 4.56821 20.5236 5.72276C20.5236 6.8773 20.0745 7.94303 19.2437 8.74233L10.9804 16.9351L2.71702 8.76453C1.90865 7.94303 1.4371 6.8773 1.4371 5.74496Z" fill="black"/>
-                    </svg>
+                    <div class="gallery__wrapper">
+                        <p class="gallery__title">Чуйский тракт</p>
+                        <img class="gallery__svg" src="./images/like.svg" alt="like">
+                    </div>
                 </li>
                 <li class="gallery__item">
                     <img src="./images/katun.jpg" alt="Катунь">
-                    <p class="gallery__heading">Катунь</p>
-                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.2991 9.78586C22.567 7.54338 22.567 3.90213 20.2991 1.68186C18.0311 -0.560619 14.3486 -0.560619 12.0806 1.68186L10.9804 2.792L9.88007 1.70406C7.61215 -0.560619 3.92957 -0.560619 1.6841 1.68186C0.583822 2.76979 0 4.21297 0 5.74496C0 7.27695 0.606277 8.72013 1.6841 9.80806L10.9804 19L20.2991 9.78586ZM1.4371 5.74496C1.4371 4.59042 1.8862 3.52469 2.71702 2.72539C3.5703 1.88168 4.67058 1.45983 5.77086 1.45983C6.87114 1.45983 7.97142 1.88168 8.8247 2.72539L10.9804 4.83465L13.136 2.70318C14.8201 1.03798 17.582 1.03798 19.2437 2.70318C20.0521 3.50248 20.5236 4.56821 20.5236 5.72276C20.5236 6.8773 20.0745 7.94303 19.2437 8.74233L10.9804 16.9351L2.71702 8.76453C1.90865 7.94303 1.4371 6.8773 1.4371 5.74496Z" fill="black"/>
-                    </svg>
+                    <div class="gallery__wrapper">
+                        <p class="gallery__title">Катунь</p>
+                        <img class="gallery__svg" src="./images/like.svg" alt="like">
+                    </div>
                 </li>
                 <li class="gallery__item">
                     <img src="./images/sea.jpg" alt="Баренцево море">
-                    <p class="gallery__heading">Баренцево море</p>
-                    <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20.2991 9.78586C22.567 7.54338 22.567 3.90213 20.2991 1.68186C18.0311 -0.560619 14.3486 -0.560619 12.0806 1.68186L10.9804 2.792L9.88007 1.70406C7.61215 -0.560619 3.92957 -0.560619 1.6841 1.68186C0.583822 2.76979 0 4.21297 0 5.74496C0 7.27695 0.606277 8.72013 1.6841 9.80806L10.9804 19L20.2991 9.78586ZM1.4371 5.74496C1.4371 4.59042 1.8862 3.52469 2.71702 2.72539C3.5703 1.88168 4.67058 1.45983 5.77086 1.45983C6.87114 1.45983 7.97142 1.88168 8.8247 2.72539L10.9804 4.83465L13.136 2.70318C14.8201 1.03798 17.582 1.03798 19.2437 2.70318C20.0521 3.50248 20.5236 4.56821 20.5236 5.72276C20.5236 6.8773 20.0745 7.94303 19.2437 8.74233L10.9804 16.9351L2.71702 8.76453C1.90865 7.94303 1.4371 6.8773 1.4371 5.74496Z" fill="black"/>
-                    </svg>
+                    <div class="gallery__wrapper">
+                        <p class="gallery__title">Баренцево море</p>
+                        <img class="gallery__svg" src="./images/like.svg" alt="like">
+                    </div>
                 </li>
             </ul>
         </section>
@@ -70,5 +74,17 @@
     <footer class="footer">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
+    <section class="popup">
+        <div class="popup__container">
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form" method="get">
+                <input class="popup__input popup__input_name" type="text" name="name" value="Жак-Ив Кусто">
+                <input class="popup__input popup__input_job" type="text" name="job" value="Исследователь океана">
+                <button class="popup__button popup__button_save" type="submit">Сохранить</button>
+            </form>
+            <button class="popup__button popup__button_close" type="button" aria-label="Закрыть"></button>
+        </div>
+    </section>
+    <script src="./sripts/script.js"></script>
 </body>
 </html>
