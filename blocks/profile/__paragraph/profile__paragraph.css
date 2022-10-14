@@ -7,8 +7,8 @@
     max-width: 217px;
     margin: 0 auto;
     grid-area: paragraph;
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 }
 
