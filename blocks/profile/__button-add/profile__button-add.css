@@ -1,21 +1,24 @@
-.profile__button_add {
+.profile__button-add {
     background-color: transparent;
     border: 2px solid #FFF;
+    border-radius: 2px;
     padding: 0;
     min-height: 50px;
-    background-image: url("../../../../images/add.svg");
+    background-image: url("../../../images/add.svg");
+    background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: center center;
     cursor: pointer;
 }
 
-.profile__button_add:hover {
+.profile__button-add:hover {
     opacity: .6;
 }
 
 @media screen and (min-width: 768px) {
-    .profile__button_add {
+    .profile__button-add {
         min-width: 150px;
         max-height: 50px;
+        background-size: 24px 24px;
     }
 }

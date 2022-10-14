@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./pages/index.css" rel="stylesheet">
-    <title>Mesto</title>
+    <title>Место</title>
 </head>
 <body class="page">
     <header class="header">
@@ -12,60 +12,56 @@
     </header>
     <main>
         <section class="profile">
-            <div class="profile__overlay">
-                <div class="profile__avatar"></div>
-            </div>
+            <img class="profile__avatar" src="./images/avatar.jpg" alt="Жак-Ив Кусто">
             <div class="profile__info">
-                <div class="profile__container">
-                    <h2 class="profile__title">Жак-Ив Кусто</h2>
-                    <button class="profile__button profile__button_edit" aria-label="Редактировать профиль"></button>
-                </div>
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button class="profile__button profile__button-edit" type="button" aria-label="Редактировать профиль"></button>
                 <p class="profile__paragraph">Исследователь океана</p>
             </div>
-            <button class="profile__button profile__button_add" type="button" aria-label="Добавить фото"></button>
+            <button class="profile__button profile__button-add" type="button" aria-label="Добавить фото"></button>
         </section>
         <section class="gallery" aria-label="Фотогалерея">
             <ul class="gallery__list">
                 <li class="gallery__item">
                     <img class="gallery__image" src="./images/karachaevsk.jpg" alt="Карачаевский храм">
                     <div class="gallery__wrapper">
-                        <p class="gallery__title">Карачаевск</p>
-                        <img class="gallery__svg" src="./images/like.svg" alt="Нравится">
+                        <h2 class="gallery__title">Карачаевск</h2>
+                        <button class="gallery__svg" type="button" aria-label="Нравится"></button>
                     </div>                     
                 </li>
                 <li class="gallery__item">
                     <img src="./images/elbrus.jpg" alt="Гора Эльбрус">
                     <div class="gallery__wrapper">
-                        <p class="gallery__title">Гора Эльбрус</p>
-                        <img class="gallery__svg" src="./images/like.svg" alt="Нравится">
+                        <h2 class="gallery__title">Гора Эльбрус</h2>
+                        <button class="gallery__svg" type="button" aria-label="Нравится"></button>
                     </div>
                 </li>
                 <li class="gallery__item">
                     <img src="./images/dombay.jpg" alt="Домбай">
                     <div class="gallery__wrapper">
-                        <p class="gallery__title">Домбай</p>
-                        <img class="gallery__svg" src="./images/like.svg" alt="Нравится">
+                        <h2 class="gallery__title">Домбай</h2>
+                        <button class="gallery__svg" type="button" aria-label="Нравится"></button>
                     </div>
                 </li>
                 <li class="gallery__item">
                     <img src="./images/camels.jpg" alt="Чуйский тракт">
                     <div class="gallery__wrapper">
-                        <p class="gallery__title">Чуйский тракт</p>
-                        <img class="gallery__svg" src="./images/like.svg" alt="Нравится">
+                        <h2 class="gallery__title">Чуйский тракт</h2>
+                        <button class="gallery__svg" type="button" aria-label="Нравится"></button>
                     </div>
                 </li>
                 <li class="gallery__item">
                     <img src="./images/katun.jpg" alt="Катунь">
                     <div class="gallery__wrapper">
-                        <p class="gallery__title">Катунь</p>
-                        <img class="gallery__svg" src="./images/like.svg" alt="Нравится">
+                        <h2 class="gallery__title">Катунь</h2>
+                        <button class="gallery__svg" type="button" aria-label="Нравится"></button>
                     </div>
                 </li>
                 <li class="gallery__item">
                     <img src="./images/sea.jpg" alt="Баренцево море">
                     <div class="gallery__wrapper">
-                        <p class="gallery__title">Баренцево море</p>
-                        <img class="gallery__svg" src="./images/like.svg" alt="Нравится">
+                        <h2 class="gallery__title">Баренцево море</h2>
+                        <button class="gallery__svg" type="button" aria-label="Нравится"></button>
                     </div>
                 </li>
             </ul>
@@ -77,14 +73,14 @@
     <section class="popup">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" method="get">
-                <input class="popup__input popup__input_name" type="text" name="name" value="Жак-Ив Кусто">
-                <input class="popup__input popup__input_job" type="text" name="job" value="Исследователь океана">
-                <button class="popup__button popup__button_save" type="submit">Сохранить</button>
+            <form class="popup__form" method="get" name="popup-form">
+                <input class="popup__input popup__input_type_name" type="text" name="name" value="Жак-Ив Кусто">
+                <input class="popup__input popup__input_type_job" type="text" name="job" value="Исследователь океана">
+                <button class="popup__button popup__button-save" type="submit">Сохранить</button>
             </form>
-            <button class="popup__button popup__button_close" type="button" aria-label="Закрыть"></button>
+            <button class="popup__button popup__button-close" type="button" aria-label="Закрыть"></button>
         </div>
     </section>
-    <script src="./sripts/script.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>
