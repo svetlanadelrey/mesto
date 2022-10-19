@@ -21,13 +21,13 @@ let closePopup = function(event) {
     }
 }
 openPopupBtn.addEventListener('click', openPopup);
-popup.addEventListener('click', closePopup);
+popup.addEventListener('mousedown', closePopup);
 
 let formSubmitHandler = function(evt) {
     evt.preventDefault();
     profileName.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    closePopup(POPUP_OPENED_CLASS);
+    closePopup();
 }
 
 formPopup.addEventListener('submit', formSubmitHandler);
