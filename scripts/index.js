@@ -16,12 +16,11 @@ let openPopup = function() {
     jobInput.value = profileJob.textContent;
 }
 let closePopup = function(event) {
-    if(!popupContent.contains(event.target) || event.target === closePopupBtn) {
-        popup.classList.remove(POPUP_OPENED_CLASS);
-    }
+    popup.classList.remove(POPUP_OPENED_CLASS);
+    //if(!popupContent.contains(event.target) || event.target === closePopupBtn) {}
 }
 openPopupBtn.addEventListener('click', openPopup);
-popup.addEventListener('mousedown', closePopup);
+closePopupBtn.addEventListener('mousedown', closePopup);
 
 let formSubmitHandler = function(evt) {
     evt.preventDefault();
