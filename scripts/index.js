@@ -5,6 +5,7 @@ const popupEditProfile = document.querySelector('.edit-profile__popup');
 const popupAddCard = document.querySelector('.add-card__popup');
 const popupContent = document.querySelector('.popup__container');
 const closePopupBtn = document.querySelector('.popup__button-close');
+const likeBtn = document.querySelectorAll('.gallery__button-like');
 
 let formPopup = document.querySelector('.popup__form');
 let nameInput = formPopup.querySelector('.popup__input_type_name');
@@ -40,3 +41,11 @@ let formSubmitHandler = function(evt) {
 }
 
 formPopup.addEventListener('submit', formSubmitHandler);
+
+let addLike = function(event) {
+    event.target.classList.toggle('gallery__button-like_active');
+}
+
+likeBtn.forEach(function(item) {
+    item.addEventListener('click', addLike);
+})
