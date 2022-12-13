@@ -37,8 +37,6 @@ const submitEditForm = function(evt) {
   profileJob.textContent = jobInput.value;
   closePopup(popupEditProfile);
   evt.target.reset();
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
 }
 
 const submitAddForm = function(evt) {
@@ -93,10 +91,14 @@ initialCards.forEach(function(item) {
   renderCard(item, cardsContainer);
 })
 
-profileEditBtn.addEventListener('click', () => {openPopup(popupEditProfile)});
+profileEditBtn.addEventListener('click', () => {
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+  openPopup(popupEditProfile);
+});
 profileCardBtn.addEventListener('click', () => {openPopup(popupAddCard)});
-profileEditCloseBtn.addEventListener('mousedown', () => {closePopup(popupEditProfile)});
-profileAddCardCloseBtn.addEventListener('mousedown', () => {closePopup(popupAddCard)});
-imageCloseBtn.addEventListener('mousedown', () => {(closePopup(popupViewImage))});
+profileEditCloseBtn.addEventListener('click', () => {closePopup(popupEditProfile)});
+profileAddCardCloseBtn.addEventListener('click', () => {closePopup(popupAddCard)});
+imageCloseBtn.addEventListener('click', () => {(closePopup(popupViewImage))});
 formEditProfile.addEventListener('submit', submitEditForm);
 formAddCard.addEventListener('submit', submitAddForm);
