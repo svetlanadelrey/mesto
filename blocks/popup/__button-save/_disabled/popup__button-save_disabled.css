@@ -4,3 +4,7 @@
     color: #000;
     opacity: .2;
 }
+
+.popup__button-save_disabled:hover {
+    opacity: .2;
+}
