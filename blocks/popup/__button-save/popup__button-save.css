@@ -21,5 +21,6 @@
         font-size: 18px;
         line-height: 22px;
         min-height: 50px;
+        cursor: default;
     }
 }

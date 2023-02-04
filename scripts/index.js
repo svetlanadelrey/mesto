@@ -23,12 +23,25 @@ const linkInput = formAddCard.querySelector('[name="link"]');
 const fullSizeImage = document.querySelector('.view-image-popup__image');
 const imageName = document.querySelector('.view-image-popup__title');
 
-const openPopup = function(popupElement) {
-  popupElement.classList.add(POPUP_OPENED_CLASS);
+
+let keyUpHandler;
+let overlayClickHandler;
+
+const handleKeyUp = (event, popupElement) => {
+  if(event.key === 'Escape') {
+    closePopup(popupElement);
+  }
 }
 
-const closePopup = function(popupElement) {
+const openPopup = (popupElement) => {
+  popupElement.classList.add(POPUP_OPENED_CLASS);
+  keyUpHandler = (event) => handleKeyUp(event, popupElement);
+  document.addEventListener('keyup', keyUpHandler);
+}
+
+const closePopup = (popupElement) => {
   popupElement.classList.remove(POPUP_OPENED_CLASS);
+  document.removeEventListener('keyup', keyUpHandler);
 }
 
 const submitEditForm = function(evt) {
@@ -91,11 +104,20 @@ initialCards.forEach(function(item) {
   renderCard(item, cardsContainer);
 })
 
+const handleOverlayClick = (event, popupElement) => {
+  if(!event.target.closest('.popup__container')) {
+    closePopup(popupElement);
+  }
+}
+
+popupList.forEach(popupElement => popupElement.addEventListener('click', (event) => handleOverlayClick(event, popupElement)));
+
 profileEditBtn.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   openPopup(popupEditProfile);
 });
+
 profileCardBtn.addEventListener('click', () => {openPopup(popupAddCard)});
 profileEditCloseBtn.addEventListener('click', () => {closePopup(popupEditProfile)});
 profileAddCardCloseBtn.addEventListener('click', () => {closePopup(popupAddCard)});
