@@ -23,28 +23,24 @@ const linkInput = formAddCard.querySelector('[name="link"]');
 const fullSizeImage = document.querySelector('.view-image-popup__image');
 const imageName = document.querySelector('.view-image-popup__title');
 
-
-let keyUpHandler;
-let overlayClickHandler;
-
-const handleKeyUp = (event, popupElement) => {
-  if(event.key === 'Escape') {
-    closePopup(popupElement);
-  }
-}
-
 const openPopup = (popupElement) => {
   popupElement.classList.add(POPUP_OPENED_CLASS);
-  keyUpHandler = (event) => handleKeyUp(event, popupElement);
-  document.addEventListener('keyup', keyUpHandler);
+  document.addEventListener('keyup', handleKeyUp);
 }
 
 const closePopup = (popupElement) => {
   popupElement.classList.remove(POPUP_OPENED_CLASS);
-  document.removeEventListener('keyup', keyUpHandler);
+  document.removeEventListener('keyup', handleKeyUp);
+}
+const handleKeyUp = (event) => {
+  event.preventDefault();
+  if(event.key === 'Escape') {
+    const currentPopup = document.querySelector(`.${POPUP_OPENED_CLASS}`);
+    closePopup(currentPopup);
+  }
 }
 
-const submitEditForm = function(evt) {
+const submitEditForm = (evt) => {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
@@ -52,7 +48,7 @@ const submitEditForm = function(evt) {
   evt.target.reset();
 }
 
-const submitAddForm = function(evt) {
+const submitAddForm = (evt) => {
   evt.preventDefault();
   const listItem = {
     name: placeInput.value,
@@ -63,7 +59,7 @@ const submitAddForm = function(evt) {
   evt.target.reset();
 }
 
-const createCard = function(item) {
+const createCard = (item) => {
   const cardElement = cardTemplate.cloneNode(true);
   const cardElementName = cardElement.querySelector('.gallery__title');
   const cardElementLink = cardElement.querySelector('.gallery__image');
@@ -87,22 +83,20 @@ const createCard = function(item) {
   return cardElement;
 }
 
-const handleLikeBtn = function(event) {
+const handleLikeBtn = (event) => {
   event.target.classList.toggle('gallery__button-like_active');
 }
 
-const handleDeleteBtn = function(event) {
+const handleDeleteBtn = (event) => {
   event.target.closest('.gallery__item').remove();
 }
 
-const renderCard = function(item, container) {
+const renderCard = (item, container) => {
   const element = createCard(item);
   container.prepend(element);
 }
 
-initialCards.forEach(function(item) {
-  renderCard(item, cardsContainer);
-})
+initialCards.forEach(item => renderCard(item, cardsContainer));
 
 const handleOverlayClick = (event, popupElement) => {
   if(!event.target.closest('.popup__container')) {
