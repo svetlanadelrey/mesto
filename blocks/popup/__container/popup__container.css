@@ -3,10 +3,10 @@
     max-width: 282px;
     background-color: #FFF;
     border-radius: 9px;
-    padding: 25px 25px;
+    padding: 25px 22px;
     position: relative;
-    box-sizing: border-box;
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     justify-content: space-between;
 }
