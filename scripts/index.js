@@ -1,3 +1,7 @@
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidate.js';
+import { initialCards, config } from './utils.js';
+
 const POPUP_OPENED_CLASS = 'popup_opened';
 const profileEditBtn = document.querySelector('.profile__button-edit');
 const profileCardBtn = document.querySelector('.profile__button-add');
@@ -10,7 +14,6 @@ const profileAddCardCloseBtn = document.querySelector('.popup__button-close_type
 const imageCloseBtn = document.querySelector('.popup__button-close_view-image');
 
 const cardsContainer = document.querySelector('.gallery__list');
-const cardTemplate = document.querySelector('#card').content.querySelector('.gallery__item');
 
 const formEditProfile = document.getElementById('edit-form');
 const nameInput = formEditProfile.querySelector('[name="name"]');
@@ -60,18 +63,8 @@ const submitAddForm = (evt) => {
 }
 
 const createCard = (item) => {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardElementName = cardElement.querySelector('.gallery__title');
-  const cardElementLink = cardElement.querySelector('.gallery__image');
-  const cardElementLikeBtn = cardElement.querySelector('.gallery__button-like');
-  const cardElementDeleteBtn = cardElement.querySelector('.gallery__button-delete');
-
-  cardElementName.textContent = item.name;
-  cardElementLink.src = item.link;
-  cardElementLink.alt = item.name;
-
-  cardElementLikeBtn.addEventListener('click', handleLikeBtn);
-  cardElementDeleteBtn.addEventListener('click', handleDeleteBtn);
+  const cardItem = new Card(item, '.card');
+  const cardElement = cardItem.create();
 
   const fullSizeImagePopup = cardElement.querySelector('.gallery__image');
   fullSizeImagePopup.addEventListener('click', () => {
@@ -81,14 +74,6 @@ const createCard = (item) => {
     imageName.textContent = item.name;
   })
   return cardElement;
-}
-
-const handleLikeBtn = (event) => {
-  event.target.classList.toggle('gallery__button-like_active');
-}
-
-const handleDeleteBtn = (event) => {
-  event.target.closest('.gallery__item').remove();
 }
 
 const renderCard = (item, container) => {
@@ -106,6 +91,12 @@ const handleOverlayClick = (event, popupElement) => {
 
 popupList.forEach(popupElement => popupElement.addEventListener('click', (event) => handleOverlayClick(event, popupElement)));
 
+const validationEditForm = new FormValidator(config, formEditProfile);
+validationEditForm.enableValidation();
+
+const validateAddForm = new FormValidator(config, formAddCard);
+validateAddForm.enableValidation();
+
 profileEditBtn.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
@@ -118,3 +109,4 @@ profileAddCardCloseBtn.addEventListener('click', () => {closePopup(popupAddCard)
 imageCloseBtn.addEventListener('click', () => {(closePopup(popupViewImage))});
 formEditProfile.addEventListener('submit', submitEditForm);
 formAddCard.addEventListener('submit', submitAddForm);
+
