@@ -6,34 +6,34 @@ class Card {
     }
 
     _handleLikeCard() {
-        this._cardElement.querySelector('.gallery__button-like').classList.toggle('gallery__button-like_active');
+        this.cardElement.querySelector('.gallery__button-like').classList.toggle('gallery__button-like_active');
     }
 
     _deleteCard() {
-        this._cardElement.remove();
+        this.cardElement.remove();
     }
 
     getTemplate() {
         return document.querySelector(this._templateSelector).content.querySelector('.gallery__item').cloneNode(true);
     }
 
-    _create() {
-        this._cardElement = this.getTemplate();
+    create() {
+        this.cardElement = this.getTemplate();
         this._setEventListeners();
-        this._cardElement.querySelector('.gallery__title').textContent = this.name;
-        this._cardElement.querySelector('.gallery__image').src = this.link;
+        this.cardElement.querySelector('.gallery__title').textContent = this._name;
+        this.cardElement.querySelector('.gallery__image').src = this._link;
 
-        return this._cardElement;
+        return this.cardElement;
     }
 
     _setEventListeners() {
-        this._cardElement.querySelector('.gallery__button-like').addEventListener('click', () => {
-            this.handleLikeCard();
+        this.cardElement.querySelector('.gallery__button-like').addEventListener('click', () => {
+            this._handleLikeCard();
         });
-        this._cardElement.querySelector('.gallery__button-delete').addEventListener('click', () => {
-            this.deleteCard();
+        this.cardElement.querySelector('.gallery__button-delete').addEventListener('click', () => {
+            this._deleteCard();
         });
     }
 }
 
-export {Card};
+export { Card };
