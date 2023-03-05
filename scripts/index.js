@@ -1,8 +1,7 @@
-import { initialCards, config } from './utils.js';
+import { initialCards, config, POPUP_OPENED_CLASS } from './utils.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidate.js';
 
-const POPUP_OPENED_CLASS = 'popup_opened';
 const profileEditBtn = document.querySelector('.profile__button-edit');
 const profileCardBtn = document.querySelector('.profile__button-add');
 const popupList = document.querySelectorAll('.popup');
@@ -89,7 +88,7 @@ const handleOverlayClick = (event, popupElement) => {
   }
 }
 
-popupList.forEach(popupElement => popupElement.addEventListener('click', (event) => handleOverlayClick(event, popupElement)));
+popupList.forEach(popupElement => popupElement.addEventListener('mousedown', (event) => handleOverlayClick(event, popupElement)));
 
 const validationEditForm = new FormValidator(config, formEditProfile);
 validationEditForm.enableValidation();

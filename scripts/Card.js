@@ -2,11 +2,12 @@ class Card {
     constructor(item, templateSelector) {
         this._name = item.name;
         this._link = item.link;
+        this._buttonLikeSelector = '.gallery__button-like';
         this._templateSelector = templateSelector;
     }
 
     _handleLikeCard() {
-        this._cardElement.querySelector('.gallery__button-like').classList.toggle('gallery__button-like_active');
+        this._cardElement.querySelector(this._buttonLikeSelector).classList.toggle('gallery__button-like_active');
     }
 
     _deleteCard() {
@@ -27,7 +28,7 @@ class Card {
     }
 
     _setEventListeners() {
-        this._cardElement.querySelector('.gallery__button-like').addEventListener('click', () => {
+        this._cardElement.querySelector(this._buttonLikeSelector).addEventListener('click', () => {
             this._handleLikeCard();
         });
         this._cardElement.querySelector('.gallery__button-delete').addEventListener('click', () => {
