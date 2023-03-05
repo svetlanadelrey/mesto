@@ -31,6 +31,8 @@ const initialCards = [
     submitButtonSelector: '.popup__button-save',
     invalidInputClass: 'popup__input_type_error',
     disabledSubmitButtonClass: 'popup__button-save_disabled'
-  }
+  };
 
-  export {initialCards, config};
+  const POPUP_OPENED_CLASS = 'popup_opened';
+
+  export { initialCards, config, POPUP_OPENED_CLASS };
