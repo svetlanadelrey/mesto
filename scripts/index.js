@@ -1,6 +1,7 @@
 import { initialCards, config, POPUP_OPENED_CLASS } from './utils.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidate.js';
+import { Section } from './Section.js';
 
 const profileEditBtn = document.querySelector('.profile__button-edit');
 const profileCardBtn = document.querySelector('.profile__button-add');
@@ -75,12 +76,15 @@ const createCard = (item) => {
   return cardElement;
 }
 
-const renderCard = (item, container) => {
-  const element = createCard(item);
-  container.prepend(element);
-}
-
-initialCards.forEach(item => renderCard(item, cardsContainer));
+const cardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    cardList.addItem(createCard(item));
+    }
+  }, 
+  '.gallery__list'
+);
+cardList.renderItems();
 
 const handleOverlayClick = (event, popupElement) => {
   if(!event.target.closest('.popup__container')) {
