@@ -1,10 +1,10 @@
-import { initialCards, config, POPUP_OPENED_CLASS } from './utils.js';
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidate.js';
-import { Section } from './Section.js';
-import { PopupWithImage } from './PopupWithImage.js';
-import { PopupWithForm } from './PopupWithForm.js';
-import { UserInfo } from './UserInfo.js';
+import { initialCards, config } from './utils.js';
+import { Card } from './components/Card.js';
+import { FormValidator } from './components/FormValidate.js';
+import { Section } from './components/Section.js';
+import { PopupWithImage } from './components/PopupWithImage.js';
+import { PopupWithForm } from './components/PopupWithForm.js';
+import { UserInfo } from './components/UserInfo.js';
 
 const profileEditBtn = document.querySelector('.profile__button-edit');
 const profileCardBtn = document.querySelector('.profile__button-add');
