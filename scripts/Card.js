@@ -1,8 +1,9 @@
 class Card {
-    constructor(item, templateSelector) {
+    constructor(item, handleCardClick, templateSelector) {
         this._name = item.name;
         this._link = item.link;
         this._buttonLikeSelector = '.gallery__button-like';
+        this._handleCardClick = handleCardClick;
         this._templateSelector = templateSelector;
     }
 
@@ -34,6 +35,12 @@ class Card {
         this._cardElement.querySelector('.gallery__button-delete').addEventListener('click', () => {
             this._deleteCard();
         });
+        this._cardElement.querySelector('.gallery__image').addEventListener('click', () => {
+            this._openImage();
+        });
+    }
+    _openImage() {
+        this._handleCardClick(this._name, this._link);
     }
 }
 
