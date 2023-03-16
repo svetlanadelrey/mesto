@@ -33,6 +33,11 @@ const initialCards = [
     disabledSubmitButtonClass: 'popup__button-save_disabled'
   };
 
-  const POPUP_OPENED_CLASS = 'popup_opened';
+  const profileEditBtn = document.querySelector('.profile__button-edit');
+  const profileCardBtn = document.querySelector('.profile__button-add');
+  const formEditProfile = document.getElementById('edit-form');
+  const nameInput = formEditProfile.querySelector('[name="name"]');
+  const jobInput = formEditProfile.querySelector('[name="job"]');
+  const formAddCard = document.getElementById('add-form');
 
-  export { initialCards, config, POPUP_OPENED_CLASS };
+  export { initialCards, config, profileEditBtn, profileCardBtn, formEditProfile, nameInput, jobInput, formAddCard };

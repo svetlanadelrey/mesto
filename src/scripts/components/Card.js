@@ -13,6 +13,7 @@ class Card {
 
     _deleteCard() {
         this._cardElement.remove();
+        this._element = null;
     }
 
     _getTemplate() {
