@@ -28,11 +28,6 @@ function submitAddForm (item) {
   cardList.addItem(newCard);
 }
 
-const profileInfo = new UserInfo({
-  profileNameSelector: '.profile__title',
-  profileDescriptionSelector: '.profile__paragraph'
-});
-
 const editForm = new PopupWithForm('.edit-profile-popup', submitEditForm);
 editForm.setEventListeners();
 
@@ -59,6 +54,11 @@ const cardList = new Section({
   '.gallery__list'
 );
 cardList.renderItems();
+
+const profileInfo = new UserInfo({
+  profileNameSelector: '.profile__title',
+  profileDescriptionSelector: '.profile__paragraph'
+});
 
 const preview = new PopupWithImage('.view-image-popup');
 preview.setEventListeners();
