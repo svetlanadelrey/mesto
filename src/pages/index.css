@@ -19,6 +19,7 @@
 @import url('/src/blocks/gallery/__button-delete/gallery__button-delete.css');
 @import url('/src/blocks/gallery/__button-like/gallery__button-like.css');
 @import url('/src/blocks/gallery/__button-like/_active/gallery__button-like_active.css');
+@import url('/src/blocks/gallery/__like-counter/gallery__like-counter.css');
 @import url('/src/blocks/footer/footer.css');
 @import url('/src/blocks/footer/__copyright/footer__copyright.css');
 @import url('/src/blocks/popup/popup.css');
