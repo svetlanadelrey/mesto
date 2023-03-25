@@ -9,62 +9,62 @@ import {
   jobInput, 
   formAddCard,
   formUpdateAvatar 
-} from '../scripts/utils.js';
-import { Card } from '../scripts/components/Card.js';
-import { FormValidator } from '../scripts/components/FormValidate.js';
-import { Section } from '../scripts/components/Section.js';
-import { PopupWithImage } from '../scripts/components/PopupWithImage.js';
-import { PopupWithForm } from '../scripts/components/PopupWithForm.js';
-import { PopupWithConfirmation } from '../scripts/components/PopupWithConfirmation';
-import { UserInfo } from '../scripts/components/UserInfo.js';
-import { Api } from '../scripts/components/Api.js';
+} from '../utils/utils.js';
+import { Card } from '../components/Card.js';
+import { FormValidator } from '../components/FormValidate.js';
+import { Section } from '../components/Section.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { PopupWithConfirmation } from '../components/PopupWithConfirmation';
+import { UserInfo } from '../components/UserInfo.js';
+import { Api } from '../components/Api.js';
 
 let currentUserId;
 
-const addForm = new PopupWithForm(
+const popupAddCard = new PopupWithForm(
   '.popup_type_add-card', 
   (item) => {
-    addForm.loading(true);
+    popupAddCard.loading(true);
     api.addCard(item)
     .then((data) => {
       cardList.addItem(createCard(data));
-      addForm.close();
+      popupAddCard.close();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      addForm.loading(false);
+      popupAddCard.loading(false);
     })
 });
 
-const editForm = new PopupWithForm(
+const popupEditProfile = new PopupWithForm(
   '.popup_type_edit-profile', 
   (data) => {
-    editForm.loading(true);
+    popupEditProfile.loading(true);
     api.editUserInfo({
       name: data.name,
       about: data.job
     })
     .then((data) => {
       profileInfo.setUserInfo(data);
-      editForm.close();
+      popupEditProfile.close();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      editForm.loading(false);
+      popupEditProfile.loading(false);
     })
   });
 
-const updateAvatarForm = new PopupWithForm(
+const popupUpdateAvatar = new PopupWithForm(
   '.popup_type_update-avatar',
   (item) => {
     api.updateAvatar(item)
     .then((data) => {
       profileInfo.setUserInfo(data);
-      updateAvatarForm.close();
+      popupUpdateAvatar.close();
     })
     .catch((err) => {
       console.log(err);
@@ -153,15 +153,14 @@ Promise.all([api.getCurrentUser(), api.getCards()])
     currentUserId = user._id;
     profileInfo.setUserInfo(user)
     cardList.renderItems(items);
-    console.log(currentUserId);
   })
   .catch((err) => {
     console.log(err);
 });
 
-addForm.setEventListeners();
-editForm.setEventListeners();
-updateAvatarForm.setEventListeners();
+popupAddCard.setEventListeners();
+popupEditProfile.setEventListeners();
+popupUpdateAvatar.setEventListeners();
 preview.setEventListeners();
 confirmForm.setEventListeners();
 validationEditForm.enableValidation();
@@ -169,7 +168,7 @@ validateAddForm.enableValidation();
 validateUpdateAvatarForm.enableValidation();
 
 profileEditBtn.addEventListener('click', () => {
-  editForm.open();
+  popupEditProfile.open();
   const userInfo = profileInfo.getUserInfo();
   nameInput.value = userInfo.name;
   jobInput.value = userInfo.job;
@@ -177,7 +176,7 @@ profileEditBtn.addEventListener('click', () => {
 });
 
 editAvatarBtn.addEventListener('click', () => {
-  updateAvatarForm.open();
+  popupUpdateAvatar.open();
 })
 
-profileCardBtn.addEventListener('click', () => addForm.open());
+profileCardBtn.addEventListener('click', () => popupAddCard.open());
