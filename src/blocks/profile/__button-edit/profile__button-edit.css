@@ -11,6 +11,7 @@
     cursor: pointer;
     padding: 0;
     grid-area: btn;
+    transition: opacity 0.6s;
 }
 
 .profile__button-edit:hover {

@@ -4,6 +4,7 @@ class FormValidator {
         this._inputSelector = config.inputSelector;
         this._submitButtonSelector = config.submitButtonSelector;
         this._invalidInputClass = config.invalidInputClass;
+        this._errorClass = config.errorClass;
         this._disabledSubmitButtonClass = config.disabledSubmitButtonClass;
         this._formElement = formElement;
         this._buttonElement = this._formElement.querySelector(config.submitButtonSelector);
@@ -13,16 +14,18 @@ class FormValidator {
 
     _showInputError(inputElement, errorElement) {
         inputElement.classList.add(this._invalidInputClass);
+        errorElement.classList.add(this._errorClass);
         errorElement.textContent = inputElement.validationMessage;
     }
 
     _hideInputError(inputElement, errorElement) {
         inputElement.classList.remove(this._invalidInputClass);
+        errorElement.classList.remove(this._errorClass);
         errorElement.textContent = ''; 
     }
 
     _checkInputValidity(inputElement) { 
-        const errorElement = document.querySelector(`.input-error-${inputElement.name}`);
+        const errorElement = this._formElement.querySelector(`.input-error-${inputElement.name}`);
         if(inputElement.validity.valid) {
             this._hideInputError(inputElement, errorElement, this._invalidInputClass);
         } else {

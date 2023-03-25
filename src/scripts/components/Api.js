@@ -67,6 +67,23 @@ class Api {
             headers: this._getHeaders(),           
         }).then(this._getJson);
     }
+
+    deleteCard(id) {
+        return fetch(`${this._url}/cards/${id}`, {
+          method: 'DELETE',
+          headers: this._getHeaders(),
+        }).then(this._getJson);
+      }
+
+    updateAvatar(data) {
+        return fetch(`${this._url}/users/me/avatar`, {
+          method: 'PATCH',
+          headers: this._getHeaders(),
+          body: JSON.stringify({
+            avatar: data.avatar
+          })  
+        }).then(this._getJson);
+      }
 }
 
 export { Api };

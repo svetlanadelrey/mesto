@@ -5,15 +5,16 @@ class Popup {
         this._handleButtonClose = this._handleButtonClose.bind(this);
         this._handleEscClose = this._handleEscClose.bind(this);
         this._handleOverlayClose = this._handleOverlayClose.bind(this);
+        this._popupOpenedClass = 'popup_opened';
     }
 
     open() {
-        this._popup.classList.add('popup_opened');
+        this._popup.classList.add(this._popupOpenedClass);
         document.addEventListener('keyup', this._handleEscClose);
     }
 
     close() {
-        this._popup.classList.remove('popup_opened');
+        this._popup.classList.remove(this._popupOpenedClass);
         document.removeEventListener('keyup', this._handleEscClose);
     }
 
